@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#fond-barre {
+    width: 100%;
+    height: 20px;
+    background-color: rgb(205, 50, 50);
+    border-radius: 10px;
+}
+#barre-vie {
+    width: 100%;
+    height: 20px;
+    background-color: limegreen;
+    border-radius: 10px;
+    transition: width 0.2s;
+}

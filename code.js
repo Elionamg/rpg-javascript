@@ -1,5 +1,5 @@
-let pv = 100;
-let potion = 3;
+
+const personnage = {nom: "Eliona", pv: 100, potion: 3};
 
 const vie = document.querySelector("#vie");
 const boutonSoigner = document.querySelector("#soigner");
@@ -9,32 +9,32 @@ const inventaire = document.querySelector("#inventaire");
 
 
 function majVie(){
-    vie.textContent = "PV : " + pv;
-    barreVie.style.width = pv + "%";
-    inventaire.textContent = "Potions : " + potion;
+    vie.textContent = "PV : " + personnage.pv;
+    barreVie.style.width = personnage.pv + "%";
+    inventaire.textContent = "Potions : " + personnage.potion;
 
-    if(pv <= 0){
+    if(personnage.pv <= 0){
     vie.textContent = "Personnage KO !";
     boutonSoigner.disabled = true;
     attaque.disabled = true;
 }
-    if(potion <= 0){
-        inventaire.textContent = "Plus de potion!";
+    if(personnage.potion <= 0){
+        inventaire.textContent = "Plus de potions!";
         boutonSoigner.disabled = true;
     }
 }
 
 
 boutonSoigner.addEventListener("click", function() {
-    if(potion > 0 && pv < 100){
-        pv = Math.min(100, pv + 20);
-    potion = potion - 1;
+    if(personnage.potion > 0 && personnage.pv < 100){
+        personnage.pv = Math.min(100, personnage.pv + 20);
+    personnage.potion = personnage.potion - 1;
     majVie();
     }
 })
 
 attaque.addEventListener("click", function() {
-    pv = Math.max(0, pv - 15)
+    personnage.pv = Math.max(0, personnage.pv - 15)
     majVie();
 })
 

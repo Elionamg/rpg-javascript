@@ -2,7 +2,7 @@ let pv = 100;
 let potion = 3;
 
 const vie = document.querySelector("#vie");
-const bouton = document.querySelector("#soigner");
+const boutonSoigner = document.querySelector("#soigner");
 const attaque = document.querySelector("#attaquer");
 const barreVie = document.querySelector("#barre-vie");
 const inventaire = document.querySelector("#inventaire");
@@ -15,21 +15,20 @@ function majVie(){
 
     if(pv <= 0){
     vie.textContent = "Personnage KO !";
-    bouton.disabled = true;
+    boutonSoigner.disabled = true;
     attaque.disabled = true;
 }
     if(potion <= 0){
         inventaire.textContent = "Plus de potion!";
-        bouton.disabled = true;
+        boutonSoigner.disabled = true;
     }
 }
 
 
-bouton.addEventListener("click", function() {
+boutonSoigner.addEventListener("click", function() {
     if(potion > 0 && pv < 100){
         pv = Math.min(100, pv + 20);
     potion = potion - 1;
-    console.log(potion);
     majVie();
     }
 })
